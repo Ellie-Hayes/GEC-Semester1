@@ -2,10 +2,81 @@
 //
 
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "Hello World!" << std::endl;
+
+
+    std::cout << "Size of char: " << sizeof(char) << "bytes " << std::endl;
+    std::cout << "Size of int: " << sizeof(int) << "bytes " << std::endl;
+    std::cout << "Size of short int: " << sizeof(short int) << "bytes " << std::endl;
+    std::cout << "Size of long int: " << sizeof(long int) << "bytes " << std::endl;
+    std::cout << "Size of float: " << sizeof(float) << "bytes " << std::endl;
+    std::cout << "Size of double: " << sizeof(double) << "bytes " << std::endl;
+    std::cout << "Size of wchar_t: " << sizeof(wchar_t) << "bytes " << std::endl;
+
+    int myInt = 5, myInt2 = 10;
+    cout << "Value stored in myInt1 is " << myInt << endl;
+    cout << "Value stored in myInt2 is " << myInt2 << endl;
+
+    float myFloat = 1.2, myFloat2 = 9.9;
+    cout << "Value stored in myFloat1 is " << myFloat << endl;
+    cout << "Value stored in myFloat2 is " << myFloat2 << endl;
+
+    char myChar = 'a';
+    cout << "Value stored in myChar is " << myChar << endl;
+
+    string myString = "Bob";
+    cout << "Value stored in myString is " << myString << endl;
+
+    typedef int health;
+
+    enum Weapons
+    {
+        SWORD = 1,
+        DAGGER,
+        MACE,
+        TWIN_SWORDS,
+        SAMURAI,
+        WIZARD_STAFF,
+        FIRE_POTION,
+        ICE_BLADE,
+        SMALL_KNIFE,
+
+    };
+
+    Weapons currentWeapon = SAMURAI;
+    health currentHealth = 1300;
+
+    cout << "Current health is: " << currentHealth << endl;
+    cout << "Weapon ID is: " << currentWeapon << endl;
+
+    int num = 1;
+    cout << "num = " << num << endl;
+    cout << "increment operator before num = " << ++num << endl;
+    cout << "num after = " << num << endl;
+
+    num = 1;
+
+    cout << "num = " << num << endl;
+    cout << "increment operator after num = " << num++ << endl;
+    cout << "num after = " << num << endl;
+
+    num = 1;
+
+    cout << "num = " << num << endl;
+    cout << "decrement operator before num = " << --num << endl;
+    cout << "num after = " << num << endl;
+
+    num = 1;
+
+    cout << "num = " << num << endl;
+    cout << "decrement operator after num = " << num-- << endl;
+    cout << "num after = " << num << endl;
+
+    num = 1;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

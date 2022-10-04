@@ -2,11 +2,16 @@
 //
 
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
-    std::cout << "Hello World!";
+    const float pi = 3.14159f;
+    float radius = 25.0f;
+    float area = pi * radius * radius;
+    cout << "The area of a circle with a radius of " << radius << " equals " << area <<endl;
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
