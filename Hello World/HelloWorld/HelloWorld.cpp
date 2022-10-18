@@ -6,12 +6,33 @@ using namespace std;
 
 int main()
 {
-    const float pi = 3.14159f;
-    float radius = 25.0f;
-    float area = pi * radius * radius;
-    cout << "The area of a circle with a radius of " << radius << " equals " << area <<endl;
+	bool a = true; 
+	int num1 = 12;
+	int num2 = 5;
+	int num3 = 7;
 
+	if (a)
 
+		num1++;
+		num2 += 5;
+	num3 *= 2;
+
+	if (a)
+	{
+		num1++;\
+	}
+	num2 += 5;
+	num3 *= 2;
+
+	if (a)
+	{
+		num1++;
+		num2 += 5;
+	}
+
+	num3 *= 2;
+
+	
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

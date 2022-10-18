@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+    //Week 1
     std::cout << "Hello World!" << std::endl;
 
 
@@ -77,6 +78,45 @@ int main()
     cout << "num after = " << num << endl;
 
     num = 1;
+
+    const float pi = 3.14159f;
+    float radius = 25.0f;
+    float area = pi * radius * radius;
+    cout << "The area of a circle with a radius of " << radius << " equals " << area << endl;
+
+    //Week 2
+
+    //Week 3
+
+    int inputNum;
+    int numCount = 2;
+    float mean = 0.0f;
+    int Total = 1;
+
+    do
+    {
+        cout << endl;
+
+        cout << "Enter a number: " << endl;
+        cin >> inputNum;
+        Total += inputNum;
+
+        if (inputNum != 0)
+        {
+            numCount++;
+
+            cout << "Enter a number: " << endl;
+            cin >> inputNum;
+            Total += inputNum;
+
+            mean = (float)Total / numCount;
+
+            cout << "Sum: " << Total << endl;
+            cout << "Mean: " << mean << endl;
+        }
+
+    } while (inputNum != 0);
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
