@@ -338,6 +338,104 @@ int main()
             cout << "All questions asked. Player survived" << endl;
         }
     }
+
+    //Week 4
+
+    /*
+    int AddTwoNumbers(int number1, int number2);
+
+    int main()
+    {
+        int result = AddTwoNumbers(10, 5);
+        cout << result << endl;
+        int myNum1 = 2;
+        int myNum2 = 4;
+
+        AddTwoNumbers(myNum1, myNum2);
+        AddTwoNumbers(myNum1, 12);
+
+        return 0;
+    }
+
+    int AddTwoNumbers(int number1, int number2)
+    {
+        return number1 + number2;
+    }
+    */
+
+    /*
+    void AddTwo(int num);
+
+    int main()
+    {
+        int myNum = 6;
+        cout << "Main : " << myNum << endl;
+        AddTwo(myNum);
+        cout << "Main : " << myNum << endl;
+    }
+
+    void AddTwo(int num)
+    {
+        num += 2;
+        cout << "Function : " << num << endl;
+    }
+    */
+
+    /*
+    void SmallestNumber(int a, int b);
+    float multiply(float number1);
+    float divideNum(float num1);
+
+    int main()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            int playerInput1;
+            int playerInput2;
+
+            cout << "Please input your first Number" << endl;
+            cin >> playerInput1;
+
+            cout << "Please input your second Number" << endl;
+            cin >> playerInput2;
+
+            SmallestNumber(playerInput1, playerInput2);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            float playerNumInput;
+
+            cout << "Please enter your number to be multiplied" << endl;
+            cin >> playerNumInput;
+
+            float multAns = multiply(playerNumInput);
+            float finalAns = divideNum(multAns);
+
+            cout << playerNumInput << " times by 10 equals " << multAns << " divide by 3 equals " << finalAns << endl;
+            cout << endl;
+        }
+
+    }
+
+    void SmallestNumber(int a, int b)
+    {
+        if (a > b) { cout << a << " is bigger than " << b << endl; }
+        else if (b > a) { cout << b << " is bigger than " << a << endl; }
+        else { cout << a << " is equal to " << b << endl; }
+
+        cout << endl;
+    }
+
+    float multiply(float number1)
+    {
+        return number1 * 10;
+    }
+
+    float divideNum(float num1)
+    {
+        return num1 / 3;
+    }*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
