@@ -436,6 +436,56 @@ int main()
     {
         return num1 / 3;
     }*/
+
+    /*
+    bool OddOrEven(int number);
+    void outputResults(int numOfOdd, int oddTotal, int numOfEven, int evenTotal);
+
+    int main()
+    {
+        //true = even false = odd
+        int numEven = 0;
+        int numOdd = 0;
+        int oddTotal = 0;
+        int evenTotal = 0;
+
+
+        for (int i = 1; i < 11; i++)
+        {
+            int playerInput;
+
+            cout << i << ": Please input a number " << endl;
+            cin >> playerInput;
+
+            bool result = OddOrEven(playerInput);
+
+            if (result)
+            {
+                evenTotal += playerInput;
+                numEven++;
+            }
+            else
+            {
+                oddTotal += playerInput;
+                numOdd++;
+            }
+
+        }
+
+        outputResults(numOdd, oddTotal, numEven, evenTotal);
+    }
+
+    bool OddOrEven(int number)
+    {
+        if (number % 2 == 0) { return true; }
+        else { return false; }
+    }
+
+    void outputResults(int numOfOdd, int oddTotal, int numOfEven, int evenTotal)
+    {
+        cout << "There were " << numOfEven << " even numbers with a total of " << evenTotal << endl;
+        cout << "There were " << numOfOdd << " odd numbers with a total of " << oddTotal << endl;
+    }*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
