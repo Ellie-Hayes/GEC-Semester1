@@ -2,118 +2,94 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <iomanip>
+#include <algorithm>
+#include <array>
+
 using namespace std;
+using std::setw;
 
-int playerHealth = 1000; 
-int enemyHealth = 2000; 
+void InitialiseBoard();
+void DrawBoard(int guess1, int guess2);
 
-void AttackChoice(int choice);
-bool PlayState();
+char lettersMixed[10] = {
+		'E','C','A','B','D',
+		'D','E','B','C','A'
+};
+
+bool CardsFound[10];
+int AttemptCount = 0;
 
 int main()
-{
-	bool playing = true;
+{                          
+	for (int i = 0; i < 10; i++) { CardsFound[i] = false; }
 
-	while (playing)
+	int score = 0;
+	bool IsPlaying = true;
+
+	while (IsPlaying)
 	{
-		int playerChoice;
+		InitialiseBoard();
 
-		cout << "You have met a troll, how will you attack?" << endl;
-		cout << "1: Use a sword      2: Use magic      3:Use an axe" << endl; 
-		cout << endl << "Choices have different effects" << endl;
+		int guess1;
+		int guess2;
 
-		cin >> playerChoice;
-		AttackChoice(playerChoice);
-		playing = PlayState();
+		cout << endl << "Please select a card" << endl;
+		cin >> guess1;
+
+		cout << "Please select a card" << endl;
+		cin >> guess2;
+		DrawBoard(guess1, guess2);
+
+		if (lettersMixed[guess1 -1] == lettersMixed[guess2 -1])
+		{
+			score++;
+			CardsFound[guess1- 1] = true;
+			CardsFound[guess2 - 1] = true;
+		}
+
+		if (score >= 5){ 
+			cout << endl << "Congratulations, you've won" << endl; 
+			IsPlaying = false;
+		}
+		else{ AttemptCount++; }
+		
 	}
 }
 
-void AttackChoice(int choice)
+void InitialiseBoard()
 {
-	const int sword_damage = 300, magic_damage = 650, axe_damage = 450, troll_sword = 350, troll_magic = 50, troll_axe = 100;
+	system("cls");
+	cout << "Attempts: " << AttemptCount << endl;
 
-	switch (choice)
+	for (int i = 0; i < 10; i++)
 	{
-		case 1:
-			enemyHealth -= sword_damage; 
-			playerHealth -= troll_sword; 
-			cout << "You have hit the troll for " << sword_damage << " damage!" << endl; 
-			cout << "The troll has hit you for " << troll_sword << " damage!" << endl;
-			if (playerHealth < 0) { playerHealth = 0; }
-			if (enemyHealth < 0) { enemyHealth = 0; }
-			cout << endl << "You have " << playerHealth << " and the troll has " << enemyHealth << endl << endl; 
-			break;
-		case 2:
-			enemyHealth -= magic_damage;
-			playerHealth -= troll_magic;
-			cout << "You have hit the troll for " << magic_damage << " damage!" << endl;
-			cout << "The troll has hit you for " << troll_magic << " damage!" << endl;
-			if (playerHealth < 0) { playerHealth = 0; }
-			if (enemyHealth < 0) { enemyHealth = 0; }
-			cout << endl << "You have " << playerHealth << " and the troll has " << enemyHealth << endl << endl;
-			break;
-		case 3:
-			enemyHealth -= axe_damage;
-			playerHealth -= troll_axe;
-			cout << "You have hit the troll for " << axe_damage << " damage!" << endl;
-			cout << "The troll has hit you for " << troll_axe << " damage!" << endl;
-			if (playerHealth < 0) { playerHealth = 0; }
-			if (enemyHealth < 0) { enemyHealth = 0; }
-			cout << endl << "You have " << playerHealth << " and the troll has " << enemyHealth << endl << endl;
-			break;
-		default:
-			cout << "Not a valid weapon type!" << endl; 
-			break;
-	}
-}
+		if (CardsFound[i]){ cout << "[" << lettersMixed[i] << "]"; }
+		else{ cout << "[" << i + 1 << "]"; }
 
-bool PlayState()
-{
-	char playAgain;
-	
-	if (enemyHealth <= 0)
-	{
-		cout << "You have killed the troll! Do you want to play again? y / n" << endl; 
-		cin >> playAgain;
-
-		if (playAgain == 'y' || playAgain == 'Y')
-		{
-			enemyHealth = 2000; playerHealth = 1000;
-			return true; 
-		}
-		else if (playAgain == 'n' || playAgain == 'N')
-		{
-			return false;
-		}
-		else
-		{
-			cout << "Not a valid input. Playing again anyway" << endl;
-			return true;
-		}
-	}
-	else if (playerHealth <= 0)
-	{
-		cout << "You have been slain! Do you want to play again? y / n" << endl;
-		cin >> playAgain;
-
-		if (playAgain == 'y' || playAgain == 'Y')
-		{
-			enemyHealth = 2000; playerHealth = 1000;
-			return true;
-		}
-		else if (playAgain == 'n' || playAgain == 'N')
-		{
-			return false;
-		}
-		else
-		{
-			cout << "Not a valid input. Playing again anyway" << endl;
-			return true;
-		}
+		if (i == 4){ cout << endl; }
 	}
 	
-	return true; 
 }
+
+void DrawBoard(int guess1, int guess2)
+{
+	system("cls");
+	cout << "Attempts: " << AttemptCount << endl;
+
+	for (int i = 0; i < 10; i++)
+	{
+		if (CardsFound[i] || i + 1 == guess1 || i + 1 == guess2)
+		{
+			cout << "[" << lettersMixed[i] << "]";
+		}
+		else{ cout << "[" << i + 1 << "]"; }
+		
+		if (i == 4) { cout << endl; }
+	}
+}
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
