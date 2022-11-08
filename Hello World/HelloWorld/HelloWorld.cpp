@@ -6,89 +6,20 @@
 #include <iomanip>
 #include <algorithm>
 #include <array>
+#include <string>
 
 using namespace std;
 using std::setw;
 
-void InitialiseBoard();
-void DrawBoard(int guess1, int guess2);
-
-char lettersMixed[10] = {
-		'E','C','A','B','D',
-		'D','E','B','C','A'
-};
-
-bool CardsFound[10];
-int AttemptCount = 0;
-
 int main()
 {                          
-	for (int i = 0; i < 10; i++) { CardsFound[i] = false; }
+	char initialString[50];
+	cin.getline(initialString, 50);
 
-	int score = 0;
-	bool IsPlaying = true;
 
-	while (IsPlaying)
-	{
-		InitialiseBoard();
-
-		int guess1;
-		int guess2;
-
-		cout << endl << "Please select a card" << endl;
-		cin >> guess1;
-
-		cout << "Please select a card" << endl;
-		cin >> guess2;
-		DrawBoard(guess1, guess2);
-
-		if (lettersMixed[guess1 -1] == lettersMixed[guess2 -1])
-		{
-			score++;
-			CardsFound[guess1- 1] = true;
-			CardsFound[guess2 - 1] = true;
-		}
-
-		if (score >= 5){ 
-			cout << endl << "Congratulations, you've won" << endl; 
-			IsPlaying = false;
-		}
-		else{ AttemptCount++; }
-		
-	}
 }
 
-void InitialiseBoard()
-{
-	system("cls");
-	cout << "Attempts: " << AttemptCount << endl;
 
-	for (int i = 0; i < 10; i++)
-	{
-		if (CardsFound[i]){ cout << "[" << lettersMixed[i] << "]"; }
-		else{ cout << "[" << i + 1 << "]"; }
-
-		if (i == 4){ cout << endl; }
-	}
-	
-}
-
-void DrawBoard(int guess1, int guess2)
-{
-	system("cls");
-	cout << "Attempts: " << AttemptCount << endl;
-
-	for (int i = 0; i < 10; i++)
-	{
-		if (CardsFound[i] || i + 1 == guess1 || i + 1 == guess2)
-		{
-			cout << "[" << lettersMixed[i] << "]";
-		}
-		else{ cout << "[" << i + 1 << "]"; }
-		
-		if (i == 4) { cout << endl; }
-	}
-}
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
