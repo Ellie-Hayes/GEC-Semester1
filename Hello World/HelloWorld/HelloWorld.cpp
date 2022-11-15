@@ -12,11 +12,19 @@ using namespace std;
 using std::setw;
 
 int main()
-{                          
+{            
+	/*
 	char initialString[50];
+	cout << "Please enter your first name initial, middle name initial and full last name: ";
 	cin.getline(initialString, 50);
 
-
+	for (int i = 0; i < sizeof(initialString) / sizeof(int); i++)
+	{
+		if (initialString[i] == ' ') { cout << endl; }
+		else { cout << initialString[i]; }
+	}
+	*/
+	
 }
 
 
