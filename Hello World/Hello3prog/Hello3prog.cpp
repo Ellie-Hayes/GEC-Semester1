@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <functional>
 #include <array>
+#include <string>
+
 
 using std::setw;
 using namespace std;
@@ -776,6 +778,365 @@ bool PlayState()
         cout << i + 1 << ": " << Inventory[i] << endl;
     }
 
+
+    //Week 6
+
+    char initialString[50];
+    cout << "Please enter your first name initial, middle name initial and full last name: ";
+    cin.getline(initialString, 50);
+
+    for (int i = 0; i < sizeof(initialString) / sizeof(int); i++)
+    {
+        if (initialString[i] == NULL) { return 0; }
+        if (initialString[i] == ' ') { cout << endl; }
+        else { cout << initialString[i]; }
+    }
+
+
+    string testString;
+    cout << "please enter two words" << endl;
+    //cin >> testString; 
+    getline(cin, testString);
+    cout << testString;
+
+    string testString;
+    cout << "please enter a sentance" << endl;
+    getline(cin, testString);
+
+    std::string stringToFind = "e";
+
+    int index = 0;
+    while ((index = testString.find(stringToFind, index)) != std::string::npos) { //std::string::npos == "no matches"
+        testString.replace(index, 1, "X");
+        index += stringToFind.length();
+    }
+
+    cout << testString << endl;
+    return 0;
+
+
+
+    string nameString;
+    string secondNameString;
+    string outputString = "Do you know who loves C++? XX does!";
+
+
+    cout << "Please enter your name" << endl;
+    getline(cin, nameString);
+
+    int Xpos = outputString.find("X");
+    outputString.insert(Xpos + 1, nameString, 0, nameString.length());
+    cout << outputString << endl;
+
+    int secondXpos = outputString.rfind("X");
+    outputString.erase(Xpos, 1);
+    outputString.erase(secondXpos - 1, 1);
+    cout << outputString << endl;
+
+    cout << "Please enter a longer name" << endl;
+    getline(cin, secondNameString);
+
+    Xpos = outputString.find(nameString);
+    outputString.replace(Xpos, nameString.length(), secondNameString);
+
+    cout << outputString << endl;
+
+
+    /*
+    void OutputInventory(vector<string> items);
+
+    int main()
+    {
+        bool canProgress = false;
+        string PlayerInput;
+
+        vector<string> inventoryItems;
+        inventoryItems.push_back("sword");
+        string item1;
+        string item2;
+
+        for (int i = 1; i < 3; i++)
+        {
+            if (i == 1) { item1 = "staff"; item2 = "knife"; }
+            else { item1 = "healing potion"; item2 = "fire spell"; }
+
+            while (!canProgress)
+            {
+                cout << "What item do you want to keep: " << item1 << " or " << item2 << "?" << endl;
+                getline(cin, PlayerInput);
+
+                std::transform(PlayerInput.begin(), PlayerInput.end(), PlayerInput.begin(),
+                    [](unsigned char c) { return std::tolower(c); });
+
+                if (PlayerInput == item1) {
+                    canProgress = true;
+                    inventoryItems.push_back(item1);
+                }
+                else if (PlayerInput == item2) {
+                    canProgress = true;
+                    inventoryItems.push_back(item2);
+                }
+                else { cout << "Invalid item, please try again" << endl; }
+            }
+
+            canProgress = false;
+            OutputInventory(inventoryItems);
+        }
+
+        cout << "Your inventory is full!" << endl;
+
+
+        while (!canProgress)
+        {
+            cout << "You have found a magic ring, what would you like to replace in your inventory?" << endl << endl << "Choices: " << endl;
+            for (int i = 0; i < inventoryItems.size(); i++) { cout << i + 1 << ": " << inventoryItems[i] << endl; }
+            cout << "4: nothing" << endl;
+
+            getline(cin, PlayerInput);
+
+            std::transform(PlayerInput.begin(), PlayerInput.end(), PlayerInput.begin(),
+                [](unsigned char c) { return std::tolower(c); });
+
+            if (PlayerInput == inventoryItems[0]) {
+                canProgress = true;
+                inventoryItems[0] = "magic ring";
+            }
+            else if (PlayerInput == inventoryItems[1]) {
+                canProgress = true;
+                inventoryItems[1] = "magic ring";
+            }
+            else if (PlayerInput == inventoryItems[2]) {
+                canProgress = true;
+                inventoryItems[1] = "magic ring";
+            }
+            else if (PlayerInput == "nothing") {
+                canProgress = true;
+            }
+            else { cout << "Not in inventory, please try again" << endl; }
+        }
+
+        canProgress = false;
+        OutputInventory(inventoryItems);
+
+        cout << "You have been robbed" << endl;
+        for (int i = 0; i < 3; i++)
+        {
+            inventoryItems.pop_back();
+        }
+
+        OutputInventory(inventoryItems);
+    }
+
+    void OutputInventory(vector<string> items)
+    {
+        cout << endl << "Your inventory holds: " << endl;
+
+        if (items.size() == 0) { cout << "Nothing you broke ass" << endl; }
+        else
+        {
+            for (int i = 0; i < items.size(); i++)
+            {
+                cout << i + 1 << ": " << items[i] << endl;
+            }
+            cout << endl;
+        }
+    }*/
+    
+
+
+    /*
+    int CheckWinner(string choice);
+
+    int main()
+    {
+        int playerScore = 0;
+        int computerScore = 0;
+        string playerInput;
+        bool isPlaying = true;
+
+        while (isPlaying)
+        {
+            cout << "Enter your selection: ";
+            getline(cin, playerInput);
+
+            std::transform(playerInput.begin(), playerInput.end(), playerInput.begin(),
+                [](unsigned char c) { return std::tolower(c); });
+
+            cout << "You chose " << playerInput << endl;
+
+            int winner = CheckWinner(playerInput);
+            if (winner == 0) {
+                cout << "Congratulations, you won!" << endl;
+                playerScore++;
+            }
+            else if (winner == 1) {
+                cout << "The computer won this round" << endl;
+                computerScore++;
+            }
+            else { cout << "It was a draw" << endl; }
+
+            cout << "You need: " << 3 - playerScore << " to win" << endl;
+            cout << "The computer needs: " << 3 - computerScore << " to win" << endl;
+            cout << "*********************************" << endl;
+
+            if (playerScore == 3)
+            {
+                cout << "Congratulations, you won" << endl << "Game over";
+                isPlaying = false;
+            }
+            else if (computerScore == 3)
+            {
+                cout << "The computer won, better luck next time" << endl << "Game over";
+                isPlaying = false;
+            }
+        }
+
+    }
+
+    int CheckWinner(string choice)
+    {								//0		//1			//2
+        string computerChoices[] = { "rock", "paper", "scissors" };
+        int randomChoice = rand() % 3;
+
+        cout << "Computer chose " << computerChoices[randomChoice] << endl;
+
+        if (choice == computerChoices[randomChoice]) { return 2; }
+        else if (choice == "rock" && randomChoice == 2) { return 0; }
+        else if (choice == "paper" && randomChoice == 0) { return 0; }
+        else if (choice == "scissors" && randomChoice == 1) { return 0; }
+        else { return 1; }
+    }*/
+
+    //Week 7
+
+    int count = 3;
+
+    for (int i = 1; i <= count; i++)
+    {
+        cout << i;
+        if (i == 2)
+            cout << " is an even number" << endl;
+        else
+            cout << " is an odd number" << endl;
+    }
+
+    // Pause the output
+    cin.get();
+
+    return 0;
+
+    /*
+    int height();
+    int weight();
+    void output_bmi(float weight, float height);
+
+    int total_inches, total_weight;
+
+
+    int main()
+    {
+        double bmi;
+        const string message = "Welcome to your BMI Calculator.";
+        string name;
+
+        cout << message << endl;
+        cout << "Firstly what is your full name?" << endl;
+        getline(cin, name);
+        cout << "Hi " << name << " lets get started." << endl;
+
+        total_weight = weight();
+        total_inches = height();
+        output_bmi(total_weight, total_inches);
+    }
+
+    int height()
+    {
+        int inches = 0;
+        int feet = 0;
+
+        while (true)
+        {
+            cout << "Please enter your height in feet:" << endl;
+            cin >> feet;
+            if (feet < 2 || feet > 7)
+            {
+                cout << "You must be between 2 and 7 feet" << endl;
+            }
+            else
+            {
+                cout << "Thank you!" << endl;
+                break;
+            }
+        }
+
+        while (true)
+        {
+            cout << "\nPlease enter the inches:" << endl;
+            cin >> inches;
+
+            if (inches < 0 || inches > 11)
+            {
+                cout << "\nInches must be between 0 and 11" << endl;
+            }
+            else
+            {
+                cout << "Thank you!" << endl;
+                break;
+            }
+
+        }
+
+        total_inches = feet * 12 + inches;
+        cout << "Your total height in inches is: " << total_inches << endl;
+        return total_inches;
+    }
+
+    int weight()
+    {
+        int stone, pounds;
+        while (true)
+        {
+            cout << "\nPlease enter your weight in stone:" << endl;
+            cin >> stone;
+            if (stone < 3 || stone > 30)
+            {
+                cout << "\nYou must be between 3 and 30 stone" << endl;
+            }
+            else
+            {
+                cout << "Thank you!" << endl;
+                break;
+            }
+        }
+
+        while (true)
+        {
+            cout << "Please enter the pounds:" << endl;
+            cin >> pounds;
+
+            if (pounds < 0 || pounds > 13)
+            {
+                cout << "Pounds must be between 0 and 13" << endl;
+            }
+            else
+            {
+                cout << "Thank you!" << endl;
+                break;
+            }
+
+        }
+
+        total_weight = stone * 12 + pounds;
+        cout << "Your total weight in pounds is: " << total_weight << endl;
+        return total_weight;
+    }
+
+    void output_bmi(float weight, float height)
+    {
+        float BMI = weight * (703 / (height * height));
+        cout << "Your BMI is: " << BMI << endl;
+    }
+    */
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
