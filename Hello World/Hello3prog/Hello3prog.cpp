@@ -1014,7 +1014,7 @@ bool PlayState()
     for (int i = 1; i <= count; i++)
     {
         cout << i;
-        if (i == 2)
+        if (i %= 2)
             cout << " is an even number" << endl;
         else
             cout << " is an odd number" << endl;
@@ -1137,6 +1137,43 @@ bool PlayState()
         cout << "Your BMI is: " << BMI << endl;
     }
     */
+
+        /*
+        * struct PersonDetails
+    {
+	    string name; 
+	    int age;
+	    string phoneNumber;
+
+	    PersonDetails() // Default Constructor
+	    {
+		
+	    }
+
+	    void PrintDetails()
+	    {
+		    cout << name << endl;
+		    cout << age << endl;
+		    cout << phoneNumber << endl;
+	    }
+    }; 
+
+    PersonDetails personDetails;
+
+    int main()
+    {
+	    int age;
+	    string name; 
+	    string number; 
+
+	    personDetails = PersonDetails(); 
+
+	    personDetails.name = "Ellie";
+	    personDetails.age = 18;
+	    personDetails.phoneNumber = "Slay"; 
+	
+	    personDetails.PrintDetails();
+    }*/ 
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
