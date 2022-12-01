@@ -342,10 +342,7 @@ int main()
             break;
         }
 
-        if (i == 10)
-        {
-            cout << "All questions asked. Player survived" << endl;
-        }
+        if (i == 10) { cout << "All questions asked. Player survived" << endl; }
     }
 
     //Week 4
@@ -1174,6 +1171,111 @@ bool PlayState()
 	
 	    personDetails.PrintDetails();
     }*/ 
+
+    /*void inputDetails(int* n1, int* n2);
+    void outputDetails(int& integer1, int& interger2, int* pointer);
+
+    int main()
+    {
+        int num1;
+        int num2;
+
+        inputDetails(&num1, &num2);
+
+        int* pNum = &num1;
+        outputDetails(num1, num2, pNum);
+
+        cout << "pNum now points to num2" << endl;
+        pNum = &num2;
+        outputDetails(num1, num2, pNum);
+    }
+
+    void inputDetails(int* n1, int* n2)
+    {
+        int num1input;
+        int num2input;
+
+        cout << "Please enter the first number" << endl;
+        cin >> num1input;
+        *n1 = num1input;
+
+        cout << "Please enter the second number" << endl;
+        cin >> num2input;
+        *n2 = num2input;
+    }
+
+    void outputDetails(int& integer1, int& interger2, int* pointer)
+    {
+        cout << endl << "Num 1: " << endl << "Value: " << integer1 << endl << "Address: " << &integer1 << endl << endl;
+        cout << endl << "Num 2: " << endl << "Value: " << interger2 << endl << "Address: " << &interger2 << endl << endl;
+        cout << endl << "pNum: " << endl << "Value: " << *pointer << endl << "Address: " << pointer << endl << "Address of pointer: " << &pointer << endl << endl;
+    }*/
+
+        
+
+   /* void add25(int& num);
+    void minus25(int& num);
+
+    int main()
+    {
+        int intInput;
+        int& rIntInput = intInput;
+        cout << "Please input a number" << endl;
+        cin >> intInput;
+
+        cout << intInput << endl;
+        add25(rIntInput);
+        cout << intInput << endl;
+
+        cout << "Please input a number" << endl;
+        cin >> intInput;
+        cout << intInput << endl;
+
+        minus25(rIntInput);
+        cout << intInput << endl;
+    }
+
+    void add25(int& num)
+    {
+        num += 25;
+        return;
+    }
+
+    void minus25(int& num)
+    {
+        num -= 25;
+        return;
+    }*/
+
+    //string outputNewName(string username);
+
+    //int main()
+    //{
+    //    string Username;
+    //    cout << "Please enter your username" << endl;
+    //    getline(cin, Username);
+
+    //    cout << "That username is taken" << endl;
+
+    //    char choice; bool giveNew = true;
+    //    while (giveNew)
+    //    {
+    //        cout << "How about: " << Username + outputNewName(Username) << endl;
+    //        cin >> choice;
+
+    //        if (choice == 'y') { giveNew = false; }
+    //    }
+
+    //}
+
+    //string outputNewName(string username)
+    //{
+    //    srand(time(0));
+    //    int usernameNumbers = rand();
+
+    //    string numberString = to_string(usernameNumbers);
+    //    return(numberString);
+    //}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

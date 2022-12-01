@@ -8,14 +8,50 @@
 #include <array>
 #include <string>
 #include <cctype>
+#include <cstring>
+#include<ctime>
 
 using namespace std;
 using std::setw;
-
+void inputDetails(int* n1, int* n2);
+void outputDetails(int& integer1, int& interger2, int* pointer);
 
 int main()
 {
-	
+    int num1;
+    int num2;
+
+    inputDetails(&num1, &num2);
+
+    int* pNum = &num1;
+    outputDetails(num1, num2, pNum);
+
+    cout << "pNum now points to num2" << endl;
+    pNum = &num2;
+    outputDetails(num1, num2, pNum);
+
+    delete pNum; 
+}
+
+void inputDetails(int* n1, int* n2)
+{
+    int num1input;
+    int num2input;
+
+    cout << "Please enter the first number" << endl;
+    cin >> num1input;
+    *n1 = num1input;
+
+    cout << "Please enter the second number" << endl;
+    cin >> num2input;
+    *n2 = num2input;
+}
+
+void outputDetails(int& integer1, int& interger2, int* pointer)
+{
+    cout << endl << "Num 1: " << endl << "Value: " << integer1 << endl << "Address: " << &integer1 << endl << endl;
+    cout << endl << "Num 2: " << endl << "Value: " << interger2 << endl << "Address: " << &interger2 << endl << endl;
+    cout << endl << "pNum: " << endl << "Value: " << *pointer << endl << "Address: " << pointer << endl << "Address of pointer: " << &pointer << endl << endl;
 }
 
 
