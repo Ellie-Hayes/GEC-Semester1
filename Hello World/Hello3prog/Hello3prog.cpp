@@ -8,6 +8,8 @@
 #include <functional>
 #include <array>
 #include <string>
+#include<ctime>
+#include<fstream>
 
 
 using std::setw;
@@ -1276,6 +1278,47 @@ bool PlayState()
     //    string numberString = to_string(usernameNumbers);
     //    return(numberString);
     //}
+
+    ofstream outfile("example.txt");
+
+    if (!outfile.is_open())
+    {
+        cerr << "File could not be opened" << endl;
+        exit(1);
+    }
+
+    outfile << "This is line 1.\n";
+    outfile << "This is line 2.\n";
+
+    outfile.close();
+
+    string lineOfText;
+    ifstream infile("example.txt");
+
+    if (infile.is_open())
+    {
+        while (getline(infile, lineOfText))
+        {
+            cout << lineOfText << endl;
+        }
+
+        infile.close();
+    }
+    else
+    {
+        cerr << "File could not be opened" << endl;
+        exit(1);
+    }
+
+    streampos begin, end;
+
+    ifstream inFile("example.txt", ios::binary);
+    begin = inFile.tellg();
+    inFile.seekg(0, ios::end);
+    end = inFile.tellg();
+
+    inFile.close();
+    cout << "file size is: " << (end - begin) << "bytes \n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

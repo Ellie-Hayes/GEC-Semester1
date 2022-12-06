@@ -1,6 +1,5 @@
 // HelloWorld.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -10,49 +9,56 @@
 #include <cctype>
 #include <cstring>
 #include<ctime>
+#include<fstream>
 
 using namespace std;
 using std::setw;
-void inputDetails(int* n1, int* n2);
-void outputDetails(int& integer1, int& interger2, int* pointer);
 
 int main()
 {
-    int num1;
-    int num2;
+	char character;
+	int number = 8; 
+	int count = 0; 
 
-    inputDetails(&num1, &num2);
+	ofstream out_stream; 
+	ifstream in_stream1; 
+	ifstream in_stream2;
 
-    int* pNum = &num1;
-    outputDetails(num1, num2, pNum);
+	out_stream.open("Integers");
 
-    cout << "pNum now points to num2" << endl;
-    pNum = &num2;
-    outputDetails(num1, num2, pNum);
+	for (count = 1; count <= 5; count++)
+	{
+		out_stream << number++ << " ";
+	}
+	out_stream.close();
 
-    delete pNum; 
+	in_stream1.open("Integers");
+	count = 0; 
+	in_stream1 >> number; 
+
+	while (!in_stream1.eof())
+	{
+		count++;
+		in_stream1 >> number; 
+	}
+	in_stream1.close();
+	cout << "There are " << count << " integers in the file." << endl; 
+
+	in_stream2.open("Integers");
+	count = 0; 
+	in_stream2 >> character; 
+
+	while (!in_stream2.eof())
+	{
+		count++;
+		in_stream2 >> character; 
+	}
+
+	in_stream2.close();
+	cout << "represented by " << count << " characters " << endl; 
 }
 
-void inputDetails(int* n1, int* n2)
-{
-    int num1input;
-    int num2input;
 
-    cout << "Please enter the first number" << endl;
-    cin >> num1input;
-    *n1 = num1input;
-
-    cout << "Please enter the second number" << endl;
-    cin >> num2input;
-    *n2 = num2input;
-}
-
-void outputDetails(int& integer1, int& interger2, int* pointer)
-{
-    cout << endl << "Num 1: " << endl << "Value: " << integer1 << endl << "Address: " << &integer1 << endl << endl;
-    cout << endl << "Num 2: " << endl << "Value: " << interger2 << endl << "Address: " << &interger2 << endl << endl;
-    cout << endl << "pNum: " << endl << "Value: " << *pointer << endl << "Address: " << pointer << endl << "Address of pointer: " << &pointer << endl << endl;
-}
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
