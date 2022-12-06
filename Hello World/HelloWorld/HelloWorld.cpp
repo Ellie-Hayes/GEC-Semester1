@@ -14,48 +14,59 @@
 using namespace std;
 using std::setw;
 
+struct Details
+{
+	string name;
+	int accountNumber;
+	double balance;
+
+	Details() // Default Constructor
+	{
+
+	}
+
+	void Details()
+	{
+		
+	}
+};
+
+Details person1Details;
+Details person2Details;
+
 int main()
 {
-	char character;
-	int number = 8; 
-	int count = 0; 
+	person1Details = Details();
+	person2Details = Details();
 
-	ofstream out_stream; 
-	ifstream in_stream1; 
-	ifstream in_stream2;
+	bool looPY1 = true;
+	bool loop2 = true;
 
-	out_stream.open("Integers");
+	int UserChoice;
+	char MoreDetails; 
 
-	for (count = 1; count <= 5; count++)
-	{
-		out_stream << number++ << " ";
-	}
+	ofstream out_stream;
+	ifstream in_stream1;
+
+	out_stream.open("Details");
 	out_stream.close();
+	in_stream1.open("Details");
 
-	in_stream1.open("Integers");
-	count = 0; 
-	in_stream1 >> number; 
-
-	while (!in_stream1.eof())
+	while (looPY1)
 	{
-		count++;
-		in_stream1 >> number; 
+		cout << "Please enter a choice: " << endl; 
+		cout << "1. Enter new details" << endl; 
+		cout << "2. Display file" << endl; 
+		cout << "3. Display accounts with over £10,000" << endl;
+		cout << "4. Exit program" << endl;
+		cin >> UserChoice;
+
+		switch (UserChoice)
+		{
+		default:
+			break;
+		}
 	}
-	in_stream1.close();
-	cout << "There are " << count << " integers in the file." << endl; 
-
-	in_stream2.open("Integers");
-	count = 0; 
-	in_stream2 >> character; 
-
-	while (!in_stream2.eof())
-	{
-		count++;
-		in_stream2 >> character; 
-	}
-
-	in_stream2.close();
-	cout << "represented by " << count << " characters " << endl; 
 }
 
 
