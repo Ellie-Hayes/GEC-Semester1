@@ -1361,6 +1361,114 @@ bool PlayState()
 
     in_stream2.close();
     cout << "represented by " << count << " characters " << endl;
+
+    //WEEK 9 UNFINISHED 
+
+    //struct Details
+    //{
+    //    string name;
+    //    int accountNumber;
+    //    double balance;
+
+    //    Details() // Default Constructor
+    //    {
+
+    //    }
+
+    //    void PrintDetails()
+    //    {
+    //        cout << name << endl;
+    //        cout << accountNumber << endl;
+    //        cout << balance << endl;
+    //    }
+    //};
+
+    //Details person1Details;
+    //Details person2Details;
+
+    //int main()
+    //{
+    //    person1Details = Details();
+    //    person2Details = Details();
+
+    //    bool looPY1 = true;
+    //    bool loop2 = true;
+
+    //    int UserChoice;
+    //    char MoreDetails;
+
+    //    ofstream out_stream;
+    //    ifstream in_stream1;
+
+    //    out_stream.open("Details.txt");
+    //    out_stream.close();
+    //    in_stream1.open("Details.txt");
+
+    //    while (looPY1)
+    //    {
+    //        cout << "Please enter a choice: " << endl;
+    //        cout << "1. Enter new details" << endl;
+    //        cout << "2. Display file" << endl;
+    //        cout << "3. Display accounts with over £10,000" << endl;
+    //        cout << "4. Exit program" << endl;
+    //        cin >> UserChoice;
+
+    //        switch (UserChoice)
+    //        {
+    //        case 1:
+    //            loop2 = true;
+    //            out_stream.open("Details.txt");
+
+    //            while (loop2)
+    //            {
+    //                if (out_stream.is_open())
+    //                {
+    //                    string name;
+    //                    int accountNumber;
+    //                    double balance;
+
+    //                    cout << "Enter your name" << endl;
+    //                    cin.ignore();
+    //                    getline(cin, name);
+    //                    person1Details.name = name;
+
+    //                    cout << "Enter your account number" << endl;
+    //                    cin >> accountNumber;
+    //                    person1Details.accountNumber = accountNumber;
+    //                    cin.get();
+
+    //                    cout << "Enter your balance number" << endl;
+    //                    cin >> balance;
+    //                    person1Details.balance = balance;
+    //                    cin.get();
+
+    //                    out_stream << person1Details.name << endl;
+    //                    out_stream << person1Details.accountNumber << endl;
+    //                    out_stream << person1Details.balance << endl << endl;
+
+    //                    cout << "Do you want to enter more details y/n" << endl;
+    //                    cin >> MoreDetails;
+    //                    cin.get();
+
+    //                    if (MoreDetails == 'n') { loop2 = false; }
+    //                }
+
+    //                out_stream.close();
+    //            }
+    //            break;
+    //        case 2:
+    //            in_stream1.open("Details.txt");
+
+    //            break;
+    //        default:
+    //            cout << "Unknown entry, please try again" << endl;
+    //            break;
+    //        }
+    //    }
+    //}
+
+    //STOP 
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

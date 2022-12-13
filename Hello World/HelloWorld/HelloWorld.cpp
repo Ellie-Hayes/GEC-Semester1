@@ -10,66 +10,42 @@
 #include <cstring>
 #include<ctime>
 #include<fstream>
-
+#include "cat.h"
 using namespace std;
 using std::setw;
 
-struct Details
-{
-	string name;
-	int accountNumber;
-	double balance;
-
-	Details() // Default Constructor
-	{
-
-	}
-
-	void Details()
-	{
-		
-	}
-};
-
-Details person1Details;
-Details person2Details;
-
 int main()
 {
-	person1Details = Details();
-	person2Details = Details();
+	cat button(5);
+	cat* pDaisy = new cat(10);
 
-	bool looPY1 = true;
-	bool loop2 = true;
+	cout << "Button is " << button.GetAge() << " years old. " << endl; 
+	cout << "Daisy is " << pDaisy->GetAge() << " years old. " << endl;
 
-	int UserChoice;
-	char MoreDetails; 
+	cin.get(); 
 
-	ofstream out_stream;
-	ifstream in_stream1;
-
-	out_stream.open("Details");
-	out_stream.close();
-	in_stream1.open("Details");
-
-	while (looPY1)
-	{
-		cout << "Please enter a choice: " << endl; 
-		cout << "1. Enter new details" << endl; 
-		cout << "2. Display file" << endl; 
-		cout << "3. Display accounts with over £10,000" << endl;
-		cout << "4. Exit program" << endl;
-		cin >> UserChoice;
-
-		switch (UserChoice)
-		{
-		default:
-			break;
-		}
-	}
+	delete pDaisy;
 }
 
+cat::cat(int initial_age)
+{
+	itsAge = initial_age;
+}
 
+cat::~cat()
+{
+
+}
+
+int cat::GetAge()
+{
+	return itsAge;
+}
+
+void cat::SetAge(int age)
+{
+	itsAge = age; 
+}
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
