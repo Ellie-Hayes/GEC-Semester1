@@ -1,53 +1,55 @@
 // HelloWorld.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <iostream>
-#include <vector>
+#include <fstream>
 #include <iomanip>
-#include <algorithm>
-#include <array>
 #include <string>
-#include <cctype>
-#include <cstring>
-#include<ctime>
-#include<fstream>
-#include "cat.h"
 using namespace std;
-using std::setw;
 
 int main()
 {
-	cat button(5);
-	cat* pDaisy = new cat(10);
+    int lineNumber = 1;
+    int totalLines;
+    char playAgainChar;
+    bool playAgain = true;
 
-	cout << "Button is " << button.GetAge() << " years old. " << endl; 
-	cout << "Daisy is " << pDaisy->GetAge() << " years old. " << endl;
+    do
+    {
+        cout << "Enter a number between 1 and 10: " << endl;
+        cin >> totalLines;
 
-	cin.get(); 
+        if (totalLines >= 1 && totalLines <= 10)
+        {
+            for (int i = 0; i < totalLines; i++)
+            {
+                for (int i = 0; i < lineNumber; i++)
+                {
+                    cout << "* ";
+                }
 
-	delete pDaisy;
+                cout << endl;
+                lineNumber++;
+            }
+        }
+        else { cout << "Not a valid number " << endl; }
+
+        cout << "Do you want to play again y or n? " << endl;
+        cin >> playAgainChar;
+
+        if (playAgainChar == 'y' || playAgainChar == 'Y')
+        {
+            lineNumber = 1;
+            continue;
+        }
+        else
+        {
+            playAgain = false;
+            cout << "Goodbye!" << endl;
+        }
+
+    } while (playAgain);
+
 }
-
-cat::cat(int initial_age)
-{
-	itsAge = initial_age;
-}
-
-cat::~cat()
-{
-
-}
-
-int cat::GetAge()
-{
-	return itsAge;
-}
-
-void cat::SetAge(int age)
-{
-	itsAge = age; 
-}
-
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
